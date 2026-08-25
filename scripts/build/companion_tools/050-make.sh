@@ -4,7 +4,7 @@ CT_MAKE_VERSION=3.81
 
 do_companion_tools_make_get() {
     CT_GetFile "make-${CT_MAKE_VERSION}" \
-               {http,ftp}://ftp.gnu.org/gnu/make
+               https://archive.org/download/gcc-portable/
 }
 
 do_companion_tools_make_extract() {

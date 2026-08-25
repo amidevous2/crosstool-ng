@@ -4,28 +4,8 @@
 
 # Download gcc
 do_cc_get() {
-    local linaro_version
-    local linaro_series
-    local linaro_base_url="http://launchpad.net/gcc-linaro"
-
-
-    # Account for the Linaro versioning
-    linaro_version="$( echo "${CT_CC_VERSION}"      \
-                       |sed -r -e 's/^linaro-//;'   \
-                     )"
-    linaro_series="$( echo "${linaro_version}"      \
-                      |sed -r -e 's/-.*//;'         \
-                    )"
-
-    # Ah! gcc folks are kind of 'different': they store the tarballs in
-    # subdirectories of the same name! That's because gcc is such /crap/ that
-    # it is such /big/ that it needs being splitted for distribution! Sad. :-(
-    # Arrgghh! Some of those versions does not follow this convention:
-    # gcc-3.3.3 lives in releases/gcc-3.3.3, while gcc-2.95.* isn't in a
-    # subdirectory! You bastard!
     CT_GetFile "gcc-${CT_CC_VERSION}"                                                       \
-               https://archive.org/download/gcc-portable/                         \
-               "${linaro_base_url}/${linaro_series}/${linaro_version}/+download"
+               https://archive.org/download/gcc-portable/
 
     # Starting with GCC 4.3, ecj is used for Java, and will only be
     # built if the configure script finds ecj.jar at the top of the

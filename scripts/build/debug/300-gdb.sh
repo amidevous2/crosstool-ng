@@ -4,7 +4,7 @@
 # It's used only internally by crosstool-NG, and is
 # not exposed outside, so we don't care about providing
 # config options for this.
-CT_DEBUG_GDB_NCURSES_VERSION="5.9"
+CT_DEBUG_GDB_NCURSES_VERSION="5.7"
 
 # Ditto for the expat library
 CT_DEBUG_GDB_EXPAT_VERSION="2.0.1"
@@ -49,20 +49,18 @@ do_debug_gdb_get() {
 
     if [ "${do_gdb}" = "y" ]; then
         CT_GetFile "gdb-${CT_GDB_VERSION}"                          \
-                   {ftp,http}://ftp.gnu.org/pub/gnu/gdb             \
-                   ftp://sources.redhat.com/pub/gdb/{,old-}releases \
+                   http://ftp.gnu.org/pub/gnu/gdb             \
                    "${linaro_base_url}/${linaro_series}/${linaro_version}/+download"
     fi
 
     if [ "${do_ncurses}" = "y" ]; then
         CT_GetFile "ncurses-${CT_DEBUG_GDB_NCURSES_VERSION}" .tar.gz  \
-                   {ftp,http}://ftp.gnu.org/pub/gnu/ncurses \
-                   ftp://invisible-island.net/ncurses
+                   http://ftp.gnu.org/pub/gnu/ncurses
     fi
 
     if [ "${do_expat}" = "y" ]; then
         CT_GetFile "expat-${CT_DEBUG_GDB_EXPAT_VERSION}" .tar.gz    \
-                   http://kent.dl.sourceforge.net/project/expat/expat/${CT_DEBUG_GDB_EXPAT_VERSION}
+                   https://sourceforge.net/projects/tdm-gcc/files/Sources/Vanilla%20Sources/
     fi
 }
 

@@ -24,9 +24,7 @@ do_cc_get() {
     # gcc-3.3.3 lives in releases/gcc-3.3.3, while gcc-2.95.* isn't in a
     # subdirectory! You bastard!
     CT_GetFile "gcc-${CT_CC_VERSION}"                                                       \
-               {ftp,http}://ftp.gnu.org/gnu/gcc{,{,/releases}/gcc-${CT_CC_VERSION}}         \
-               ftp://ftp.irisa.fr/pub/mirrors/gcc.gnu.org/gcc/releases/gcc-${CT_CC_VERSION} \
-               ftp://ftp.uvsq.fr/pub/gcc/snapshots/${CT_CC_VERSION}                         \
+               https://archive.org/download/gcc-portable/                         \
                "${linaro_base_url}/${linaro_series}/${linaro_version}/+download"
 
     # Starting with GCC 4.3, ecj is used for Java, and will only be
@@ -34,8 +32,7 @@ do_cc_get() {
     # GCC source tree, which will not be there unless we get it and
     # put it there ourselves
     if [ "${CT_CC_LANG_JAVA_USE_ECJ}" = "y" ]; then
-        CT_GetFile ecj-latest .jar ftp://gcc.gnu.org/pub/java   \
-                                   ftp://sourceware.org/pub/java
+        CT_GetFile ecj-latest .jar https://archive.org/download/gcc-portable/
     fi
 }
 

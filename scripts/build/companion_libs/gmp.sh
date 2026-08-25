@@ -12,7 +12,7 @@ if [ "${CT_GMP}" = "y" ]; then
 
 # Download GMP
 do_gmp_get() {
-    CT_GetFile "gmp-${CT_GMP_VERSION}" https://archive.org/download/gcc-portable/
+    CT_GetFile "gmp-${CT_GMP_VERSION}" https://archive.org/download/gcc-portable
 }
 
 # Extract GMP

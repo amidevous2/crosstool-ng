@@ -21,9 +21,8 @@ do_libc_get() {
 
     # Main source
     CT_GetFile "glibc-${CT_LIBC_VERSION}"               \
-               {ftp,http}://ftp.gnu.org/gnu/glibc       \
-               ftp://gcc.gnu.org/pub/glibc/releases     \
-               ftp://gcc.gnu.org/pub/glibc/snapshots
+               https://mirrors.kernel.org/gnu/glibc/       \
+               https://archive.org/download/gcc-portable/
 
     # C library addons
     for addon in "${addons_list[@]}"; do

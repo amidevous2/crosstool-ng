@@ -344,11 +344,11 @@ do_cc_core_backend() {
         extra_config+=("--with-system-zlib")
     fi
 
-    if [ "${CT_MULTILIB}" = "y" ]; then
+#    if [ "${CT_MULTILIB}" = "y" ]; then
         extra_config+=("--enable-multilib")
-    else
+#    else
         extra_config+=("--disable-multilib")
-    fi
+#    fi
 
     CT_DoLog DEBUG "Extra config passed: '${extra_config[*]}'"
 
@@ -358,9 +358,6 @@ do_cc_core_backend() {
     CFLAGS="${cflags}"                              \
     LDFLAGS="${core_LDFLAGS[*]}"                    \
     "${CT_SRC_DIR}/gcc-${CT_CC_VERSION}/configure"  \
-        --build=${CT_BUILD}                         \
-        --host=${host}                              \
-        --target=${CT_TARGET}                       \
         --prefix="${prefix}"                        \
         --with-local-prefix="${CT_SYSROOT_DIR}"     \
         --disable-libmudflap                        \

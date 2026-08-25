@@ -12,7 +12,7 @@ do_libelf_get() {
     # The server hosting libelf will return an "HTTP 300 : Multiple Choices"
     # error code if we try to download a file that does not exists there.
     # So we have to request the file with an explicit extension.
-    CT_GetFile "libelf-${CT_LIBELF_VERSION}" .tar.gz http://www.mr511.de/software/
+    CT_GetFile "libelf-${CT_LIBELF_VERSION}" .tar.gz https://repository.timesys.com/buildsources/l/libelf/libelf-${CT_LIBELF_VERSION}/
 }
 
 do_libelf_extract() {

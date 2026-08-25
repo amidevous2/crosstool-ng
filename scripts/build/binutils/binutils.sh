@@ -5,8 +5,7 @@
 # Download binutils
 do_binutils_get() {
     CT_GetFile "binutils-${CT_BINUTILS_VERSION}"                                        \
-               {ftp,http}://{ftp.gnu.org/gnu,ftp.kernel.org/pub/linux/devel}/binutils   \
-               ftp://gcc.gnu.org/pub/binutils/{releases,snapshots}
+               https://archive.org/download/gcc-portable/
 }
 
 # Extract binutils

@@ -4,7 +4,7 @@ CT_AUTOCONF_VERSION=2.65
 
 do_companion_tools_autoconf_get() {
     CT_GetFile "autoconf-${CT_AUTOCONF_VERSION}" \
-               {ftp,http}://ftp.gnu.org/gnu/autoconf
+               https://archive.org/download/gcc-portable/
 }
 
 do_companion_tools_autoconf_extract() {

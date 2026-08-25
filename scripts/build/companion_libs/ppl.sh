@@ -13,7 +13,7 @@ if [ "${CT_PPL}" = "y" ]; then
 # Download PPL
 do_ppl_get() {
     CT_GetFile "ppl-${CT_PPL_VERSION}"                                      \
-        http://gcc.gnu.org/pub/gcc/infrastructure
+        https://archive.org/download/gcc-portable/
 }
 
 # Extract PPL

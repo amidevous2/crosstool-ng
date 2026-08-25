@@ -12,7 +12,7 @@ do_libelf_get() {
     # The server hosting libelf will return an "HTTP 300 : Multiple Choices"
     # error code if we try to download a file that does not exists there.
     # So we have to request the file with an explicit extension.
-    CT_GetFile "libelf-${CT_LIBELF_VERSION}" .https://archive.org/download/gcc-portable/
+    CT_GetFile "libelf-${CT_LIBELF_VERSION}" https://archive.org/download/gcc-portable/
 }
 
 do_libelf_extract() {

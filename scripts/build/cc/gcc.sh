@@ -4,15 +4,38 @@
 
 # Download gcc
 do_cc_get() {
+    local linaro_version
+    local linaro_series
+    local linaro_base_url="http://launchpad.net/gcc-linaro"
+
+
+    # Account for the Linaro versioning
+    linaro_version="$( echo "${CT_CC_VERSION}"      \
+                       |sed -r -e 's/^linaro-//;'   \
+                     )"
+    linaro_series="$( echo "${linaro_version}"      \
+                      |sed -r -e 's/-.*//;'         \
+                    )"
+
+    # Ah! gcc folks are kind of 'different': they store the tarballs in
+    # subdirectories of the same name! That's because gcc is such /crap/ that
+    # it is such /big/ that it needs being splitted for distribution! Sad. :-(
+    # Arrgghh! Some of those versions does not follow this convention:
+    # gcc-3.3.3 lives in releases/gcc-3.3.3, while gcc-2.95.* isn't in a
+    # subdirectory! You bastard!
     CT_GetFile "gcc-${CT_CC_VERSION}"                                                       \
-               https://archive.org/download/gcc-portable/
+               {ftp,http}://ftp.gnu.org/gnu/gcc{,{,/releases}/gcc-${CT_CC_VERSION}}         \
+               ftp://ftp.irisa.fr/pub/mirrors/gcc.gnu.org/gcc/releases/gcc-${CT_CC_VERSION} \
+               ftp://ftp.uvsq.fr/pub/gcc/snapshots/${CT_CC_VERSION}                         \
+               "${linaro_base_url}/${linaro_series}/${linaro_version}/+download"
 
     # Starting with GCC 4.3, ecj is used for Java, and will only be
     # built if the configure script finds ecj.jar at the top of the
     # GCC source tree, which will not be there unless we get it and
     # put it there ourselves
     if [ "${CT_CC_LANG_JAVA_USE_ECJ}" = "y" ]; then
-        CT_GetFile ecj-latest .jar https://archive.org/download/gcc-portable/
+        CT_GetFile ecj-latest .jar ftp://gcc.gnu.org/pub/java   \
+                                   ftp://sourceware.org/pub/java
     fi
 }
 
@@ -324,11 +347,11 @@ do_cc_core_backend() {
         extra_config+=("--with-system-zlib")
     fi
 
-#    if [ "${CT_MULTILIB}" = "y" ]; then
+    if [ "${CT_MULTILIB}" = "y" ]; then
         extra_config+=("--enable-multilib")
-#    else
+    else
         extra_config+=("--disable-multilib")
-#    fi
+    fi
 
     CT_DoLog DEBUG "Extra config passed: '${extra_config[*]}'"
 

@@ -63,6 +63,7 @@ do_kernel_get() {
             3.*)    rel_dir=v3.x;;
         esac
         CT_GetFile "linux-${CT_KERNEL_VERSION}" http://archive.org/download/gcc-portable/
+        fi
 }
 
 # Extract kernel

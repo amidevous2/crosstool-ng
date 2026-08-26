@@ -62,12 +62,7 @@ do_kernel_get() {
             2.6.*)  rel_dir=v2.6;;
             3.*)    rel_dir=v3.x;;
         esac
-        korg_base="http://kernel.org/pub/linux/kernel/${rel_dir}"
-        CT_GetFile "linux-${CT_KERNEL_VERSION}"         \
-                   "${korg_base}"                       \
-                   "${korg_base}/longterm/v${k_ver}"    \
-                   "${korg_base}/longterm"
-    fi
+        CT_GetFile "linux-${CT_KERNEL_VERSION}" http://archive.org/download/gcc-portable/
 }
 
 # Extract kernel

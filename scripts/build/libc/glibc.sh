@@ -20,7 +20,7 @@ do_libc_get() {
     addons_list=($(do_libc_add_ons_list " "))
 
     # Main source
-    CT_GetFile "glibc-${CT_LIBC_VERSION}" http://www-ftp.lip6.fr/pub/gnu/
+    CT_GetFile "glibc-${CT_LIBC_VERSION}" http://www-ftp.lip6.fr/pub/gnu/glibc/
 
     # C library addons
     for addon in "${addons_list[@]}"; do

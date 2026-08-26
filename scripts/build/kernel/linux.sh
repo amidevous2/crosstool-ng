@@ -114,6 +114,7 @@ do_kernel_install() {
     make -C "${kernel_path}"                            \
          O="${CT_BUILD_DIR}/build-kernel-headers"       \
          ARCH=${CT_ARCH}                                \
+         HOSTCC=/usr/bin/gcc                            \
          INSTALL_HDR_PATH="${CT_SYSROOT_DIR}/usr"       \
          ${V_OPT}                                       \
          headers_install

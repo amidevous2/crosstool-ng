@@ -313,7 +313,7 @@ if [ -z "${CT_RESTART}" ]; then
 
     if [ "${CT_USE_SYSROOT}" = "y" ]; then
         # Prevent gcc from installing its libraries outside of the sysroot
-        CT_Pushd "${CT_PREFIX_DIR}/${CT_TARGET}"
+        CT_Pushd "${CT_PREFIX_DIR}"
         CT_DoExecLog ALL ln -sf "${CT_SYSROOT_REL_DIR}/lib" "lib"
         CT_Popd
     fi

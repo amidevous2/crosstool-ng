@@ -114,7 +114,7 @@ do_kernel_install() {
     make -C "${kernel_path}"                            \
          O="${CT_BUILD_DIR}/build-kernel-headers"       \
          ARCH=${CT_ARCH}                                \
-         INSTALL_HDR_PATH="${CT_SYSROOT_DIR}/usr"       \
+         INSTALL_HDR_PATH="${CT_SYSROOT_DIR}"       \
          ${V_OPT}                                       \
          headers_install
 
@@ -124,7 +124,7 @@ do_kernel_install() {
         make -C "${kernel_path}"                            \
              O="${CT_BUILD_DIR}/build-kernel-headers"       \
              ARCH=${CT_ARCH}                                \
-             INSTALL_HDR_PATH="${CT_SYSROOT_DIR}/usr"       \
+             INSTALL_HDR_PATH="${CT_SYSROOT_DIR}"       \
              ${V_OPT}                                       \
              headers_check
     fi
@@ -147,8 +147,8 @@ do_kernel_custom() {
 
     CT_DoLog EXTRA "Installing custom kernel headers"
 
-    mkdir -p "${CT_SYSROOT_DIR}/usr"
-    cd "${CT_SYSROOT_DIR}/usr"
+    mkdir -p "${CT_SYSROOT_DIR}"
+    cd "${CT_SYSROOT_DIR}"
     if [ "${CT_KERNEL_LINUX_CUSTOM_IS_TARBALL}" = "y" ]; then
         case "${CT_KERNEL_LINUX_CUSTOM_PATH}" in
             *.tar)      ;;

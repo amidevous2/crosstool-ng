@@ -12,7 +12,7 @@ if [ "${CT_PPL}" = "y" ]; then
 
 # Download PPL
 do_ppl_get() {
-    CT_GetFile "ppl-${CT_PPL_VERSION}" https://ftp.lip6.fr/pub/gcc/infrastructure/
+    CT_GetFile "ppl-${CT_PPL_VERSION}" https://ftp.lip6.fr/pub/gcc/infrastructure
 }
 
 # Extract PPL

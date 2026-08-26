@@ -385,7 +385,7 @@ do_libc_backend_once() {
             # Two headers -- stubs.h and features.h -- aren't installed by install-headers,
             # so do them by hand.  We can tolerate an empty stubs.h for the moment.
             # See e.g. http://gcc.gnu.org/ml/gcc/2002-01/msg00900.html
-            mkdir -p "${CT_HEADERS_DIR}/gnu"
+            mkdir -p "${CT_HEADERS_DIR}/gnu" "${CT_HEADERS_DIR}/bits"
             CT_DoExecLog ALL touch "${CT_HEADERS_DIR}/gnu/stubs.h"
             CT_DoExecLog ALL cp -v "${CT_SRC_DIR}/glibc-${CT_LIBC_VERSION}/include/features.h"  \
                                    "${CT_HEADERS_DIR}/features.h"

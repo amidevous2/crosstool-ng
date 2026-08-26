@@ -9,6 +9,8 @@ CT_CONFIGURE_has_cvs=y
 CT_CONFIGURE_has_svn=y
 CT_MODULES=y
 
+CT_MULTILIB=y
+
 #
 # Paths and misc options
 #

@@ -328,8 +328,7 @@ if [ -z "${CT_RESTART}" ]; then
     for d in                            \
         "${CT_PREFIX_DIR}"              \
         "${CT_SYSROOT_DIR}"             \
-        "${CT_SYSROOT_DIR}/usr"         \
-        "${CT_PREFIX_DIR}/${CT_TARGET}" \
+        "${CT_SYSROOT_DIR}"
     ; do
         CT_DoExecLog ALL ln -sf "lib" "${d}/lib32"
         CT_DoExecLog ALL ln -sf "lib" "${d}/lib64"

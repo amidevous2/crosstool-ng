@@ -326,7 +326,7 @@ if [ -z "${CT_RESTART}" ]; then
     # Not all of these symlinks are necessary, but better safe than
     # sorry. They are summarily removed by build/internals.sh:do_finish.
     for d in                            \
-        "${CT_PREFIX_DIR}"  
+        "${CT_PREFIX_DIR}"              \
     ; do
         CT_DoExecLog ALL ln -sf "lib" "${d}/lib32"
         CT_DoExecLog ALL ln -sf "lib" "${d}/lib64"

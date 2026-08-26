@@ -13,7 +13,7 @@ if [ "${CT_CLOOG}" = "y" ]; then
 # Download CLooG
 do_cloog_get() {
     CT_GetFile "cloog-ppl-${CT_CLOOG_VERSION}"  \
-        ftp://gcc.gnu.org/pub/gcc/infrastructure
+        http://ftp2.osuosl.org/pub/clfs/conglomeration/cloog-ppl/
 }
 
 # Extract CLooG

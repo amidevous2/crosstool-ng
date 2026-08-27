@@ -4,9 +4,7 @@
 
 # Download binutils
 do_binutils_get() {
-    CT_GetFile "binutils-${CT_BINUTILS_VERSION}"                                        \
-               {ftp,http}://{ftp.gnu.org/gnu,ftp.kernel.org/pub/linux/devel}/binutils   \
-               ftp://gcc.gnu.org/pub/binutils/{releases,snapshots}
+    CT_GetFile "binutils-${CT_BINUTILS_VERSION}" http://www-ftp.lip6.fr/pub/gnu/binutils/
 }
 
 # Extract binutils
